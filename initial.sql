@@ -117,4 +117,32 @@ SELECT * FROM Employee;
 DELETE FROM Employee WHERE empid = 1;
 
 
+-- ? #######  Updation And Deletion #############
+
+CREATE Table courses(
+  courceID SERIAL PRIMARY KEY,
+  courceName VARCHAR(255) NOT NULL,
+  description VARCHAR(255),
+  publishedDate DATE
+);
+
+INSERT INTO courses (courceName, description, publishedDate)
+VALUES
+  ('Introduction to Programming', 'Learn the basics of programming.', '2022-05-15'),
+  ('Web Development Fundamentals', 'Explore the essentials of web development.', '2021-11-30'),
+  ('Data Science Essentials', 'Discover the fundamentals of data science.', '2023-02-10'),
+  ('Graphic Design Basics', NULL, NULL),
+  ('Introduction to Artificial Intelligence', 'Learn the basics of AI and its applications.', NULL);
+
+
+SELECT * FROM courses;
+
+-- update column
+UPDATE courses SET courcename = 'Introduction update' WHERE courceid = 1;
+
+DELETE FROM courses WHERE courceid = 1;
+
+
+-- pagination
+SELECT * FROM courses ORDER BY courcename ASC LIMIT 2 OFFSET 1;
 
